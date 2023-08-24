@@ -1,0 +1,34 @@
+from bs4 import BeautifulSoup
+import requests
+
+# url of scrape
+url = 'https://en.wikipedia.org/wiki/List_of_English_monarchs'
+
+# Get the HTML content using requests
+html_content = requests.get(url).text
+
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(html_content, 'html.parser')
+
+rows = soup.find_all('tr')
+
+for row in rows[1:]:  # Start from index 1 to skip the header row
+    columns = row.find_all('td')
+    try:
+      if columns:  # Only process rows with 'td' (data) elements
+          name = columns[0].find('a').text
+          birth_year = columns[2].text.split('\n')[0].strip()
+          death_info = columns[4].text.strip()
+          lineage = columns[5].text.strip()
+
+          print(f"Name: {name}")
+          print(f"Birth Year: {birth_year}")
+          print(f"Death Info: {death_info}")
+          print(f"Lineage: {lineage}")
+          print('-' * 40)
+    except:
+        print("broke")
+        continue
+
+#create dictionary
+king_dic = {}
