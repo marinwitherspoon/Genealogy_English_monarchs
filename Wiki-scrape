@@ -10,25 +10,21 @@ html_content = requests.get(url).text
 # Parse the HTML content using BeautifulSoup
 soup = BeautifulSoup(html_content, 'html.parser')
 
-rows = soup.find_all('tr')
+all_king_tables = soup.find_all('table',{'class':"wikitable"})
 
-for row in rows[1:]:  # Start from index 1 to skip the header row
-    columns = row.find_all('td')
-    try:
-      if columns:  # Only process rows with 'td' (data) elements
-          name = columns[0].find('a').text
-          birth_year = columns[2].text.split('\n')[0].strip()
-          death_info = columns[4].text.strip()
-          lineage = columns[5].text.strip()
+df_all = pd.DataFrame(columns=['Name', 'Birth', 'Death', 'Claim'])
 
-          print(f"Name: {name}")
-          print(f"Birth Year: {birth_year}")
-          print(f"Death Info: {death_info}")
-          print(f"Lineage: {lineage}")
-          print('-' * 40)
-    except:
-        print("broke")
-        continue
+for i in all_king_tables:
+  df=pd.read_html(str(i))[0]
 
-#create dictionary
-king_dic = {}
+  if 'Claim' in df.columns:
+    selected_columns = ['Name', 'Birth', 'Death', 'Claim']
+  else:
+    selected_columns = ['Name', 'Birth', 'Death']
+    df['Claim'] = None 
+
+  # convert list to dataframe
+  df=pd.DataFrame(df)[selected_columns]
+
+  df_all = pd.concat([df_all, df], axis=0, ignore_index=True)
+print(df_all)
