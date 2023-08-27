@@ -35,10 +35,14 @@ df_all.drop([18, 25, 48], inplace=True)
 #reset indexing
 df_all.reset_index(drop=True, inplace=True)
 
-# Print the updated DataFrame
-
-df_all[['Name', 'description']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
+# - clean up name column -------------------
+#seperate the name form the rest of the string
+df_all[['Name', 'desc']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
 
 #remove any left over markers including excess spaces
-df_all['desc'] = df_all['desc'].str.replace(r'^\[\d+\]\s*', '', regex=True)
+df_all['desc'] = df_all['desc'].str.replace(r'^\[\d+\]\s*|c\.\s*', '', regex=True)
 df_all['desc'] = df_all['desc'].str.strip()
+
+#split before first number?
+print(df_all['Name'])
+print(df_all['desc'])
