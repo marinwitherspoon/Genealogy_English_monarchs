@@ -37,4 +37,4 @@ df_all.reset_index(drop=True, inplace=True)
 
 # Print the updated DataFrame
 
-df_all[['Name', 'description']] = df_all['Name'].str.split(r'\[\d+\]', 1, expand=True)
+df_all[['Name', 'description']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
