@@ -38,3 +38,7 @@ df_all.reset_index(drop=True, inplace=True)
 # Print the updated DataFrame
 
 df_all[['Name', 'description']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
+
+#remove any left over markers including excess spaces
+df_all['desc'] = df_all['desc'].str.replace(r'^\[\d+\]\s*', '', regex=True)
+df_all['desc'] = df_all['desc'].str.strip()
