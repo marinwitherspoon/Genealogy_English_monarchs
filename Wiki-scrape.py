@@ -37,12 +37,15 @@ df_all.reset_index(drop=True, inplace=True)
 
 # - clean up name column -------------------
 #seperate the name form the rest of the string
+df_all['Name'] = df_all['Name'].str.replace(r'\[.*?\]', '')
 df_all[['Name', 'desc']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
 
-#remove any left over markers including excess spaces
-df_all['desc'] = df_all['desc'].str.replace(r'^\[\d+\]\s*|c\.\s*', '', regex=True)
-df_all['desc'] = df_all['desc'].str.strip()
+# clean up names column by removing repeating names
+df_all['Name'] = df_all['Name'].apply(lambda row: ' '.join(sorted(set(row.split()), key=row.index)))
 
-#split before first number?
-print(df_all['Name'])
-print(df_all['desc'])
+#exstract dates from description
+df_all['dates'] = df_all['desc'].str.extract(r'(\s*\w*\s*\d{3,4}\s*(?:–\s*\d{0,2}\s*\w*\s*\d{3,4})?)')
+
+# manually set value for messy rows
+df_all['dates'][3] = '927 – 27 October 939'
+df_all['desc'][29] = 'July 1307 – Abdicated 20 January 1327'
