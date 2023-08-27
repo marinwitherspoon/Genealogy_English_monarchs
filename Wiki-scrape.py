@@ -27,4 +27,14 @@ for i in all_king_tables:
   df=pd.DataFrame(df)[selected_columns]
 
   df_all = pd.concat([df_all, df], axis=0, ignore_index=True)
-print(df_all)
+
+# clean data
+#############################
+# Delete rows with invalid data
+df_all.drop([18, 25, 48], inplace=True)
+#reset indexing
+df_all.reset_index(drop=True, inplace=True)
+
+# Print the updated DataFrame
+
+df_all[['Name', 'description']] = df_all['Name'].str.split(r'\[\d+\]', 1, expand=True)
