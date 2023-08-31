@@ -60,7 +60,7 @@ df_all['Death'] = df_all['Death'].str.extract(r'(\d{3,4})')
 df_all['Claim'] = df_all['Claim'].str.replace(r'/.*?of', 'of')
 #exstract relationship
 df_all['ClaimRelation'] = df_all['Claim'].str.extract(r'(\w*(?:-\w+)*(?:Son|Daughter))\s+',flags=re.IGNORECASE)
-
+# exstract and clean up names
 df_all['Claim'] = df_all['Claim'].str.extract(r'(?:Son|Daughter)\s+of\s+(\w+\s*(?:[IV]+|of\s+\w+|the\s+\w+)*)',flags=re.IGNORECASE)
 df_all['Claim'] = df_all['Claim'].str.replace(r'(?<=[^ ])(?<![IV])([A-Z])(.*?)$','')
 
