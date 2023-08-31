@@ -61,18 +61,9 @@ df_all['Claim'] = df_all['Claim'].str.replace(r'/.*?of', 'of')
 #exstract relationship
 df_all['ClaimRelation'] = df_all['Claim'].str.extract(r'(\w*(?:-\w+)*(?:Son|Daughter))\s+',flags=re.IGNORECASE)
 
-#df_all['Claim'] = df_all['Claim'].str.extract(r'\s+of(\w+)',flags=re.IGNORECASE)
-print('18',df_all['Name'][18])
-print('27',df_all['Name'][27])
-
-print('18',df_all['Claim'][18])
-print('27',df_all['Claim'][27])
-
 df_all['Claim'] = df_all['Claim'].str.extract(r'(?:Son|Daughter)\s+of\s+(\w+\s*(?:[IV]+|of\s+\w+|the\s+\w+)*)',flags=re.IGNORECASE)
-# df_all['Claim'][0] = 'Æthelwulf of Wessex'
-df_all['Claim'][10] = NaN
-# df_all['Claim'][13] = 'Sweyn'
-# df_all['Claim'][27] = 'John'
-df_all['Claim'][45] = 'spouse'
+df_all['Claim'] = df_all['Claim'].str.replace(r'(?<=[^ ])(?<![IV])([A-Z])(.*?)$','')
 
-print(df_all['Claim'])
+#manually correct data
+df_all['Claim'][10] = NaN
+df_all['Claim'][45] = 'spouse'
