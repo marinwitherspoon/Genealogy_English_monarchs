@@ -38,6 +38,7 @@ df_all.reset_index(drop=True, inplace=True)
 # - clean up name column -------------------
 #seperate the name form the rest of the string
 df_all['Name'] = df_all['Name'].str.replace(r'\[.*?\]', '')
+
 df_all[['Name', 'desc']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
 
 # clean up names column by removing repeating names
@@ -48,4 +49,13 @@ df_all['dates'] = df_all['desc'].str.extract(r'(\s*\w*\s*\d{3,4}\s*(?:–\s*\d{0
 
 # manually set value for messy rows
 df_all['dates'][3] = '927 – 27 October 939'
-df_all['desc'][29] = 'July 1307 – Abdicated 20 January 1327'
+df_all['dates'][29] = 'July 1307 – 20 January 1327'
+
+#remove days
+df_all['dates'] = df_all['dates'].str.replace(r'\s+\d{0,2}\s+', ' ')
+
+# - clean up Birth column -------------------
+df_all['Birth'] = df_all['Birth'].str.extract(r'(\d{3,4})')
+
+# - clean up Death column -------------------
+df_all['Death'] = df_all['Death'].str.extract(r'(\d{3,4})')
