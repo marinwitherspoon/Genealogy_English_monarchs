@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
+import re
 
 # url of scrape
 url = 'https://en.wikipedia.org/wiki/List_of_English_monarchs'
