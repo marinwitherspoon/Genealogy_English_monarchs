@@ -28,8 +28,8 @@ for i in all_king_tables:
 
   df_all = pd.concat([df_all, df], axis=0, ignore_index=True)
 
-# clean data
-#############################
+#  clean data  ##########################
+
 # Delete rows with invalid data
 df_all.drop([18, 25, 48], inplace=True)
 #reset indexing
@@ -39,23 +39,40 @@ df_all.reset_index(drop=True, inplace=True)
 #seperate the name form the rest of the string
 df_all['Name'] = df_all['Name'].str.replace(r'\[.*?\]', '')
 
+#cleaning name column to include only names
 df_all[['Name', 'desc']] = df_all['Name'].str.split(r'\s\d|\[\d+\]', 1, expand=True)
-
-# clean up names column by removing repeating names
 df_all['Name'] = df_all['Name'].apply(lambda row: ' '.join(sorted(set(row.split()), key=row.index)))
 
 #exstract dates from description
-df_all['dates'] = df_all['desc'].str.extract(r'(\s*\w*\s*\d{3,4}\s*(?:–\s*\d{0,2}\s*\w*\s*\d{3,4})?)')
-
-# manually set value for messy rows
-df_all['dates'][3] = '927 – 27 October 939'
-df_all['dates'][29] = 'July 1307 – 20 January 1327'
-
-#remove days
-df_all['dates'] = df_all['dates'].str.replace(r'\s+\d{0,2}\s+', ' ')
+df_all['dates'] = df_all['desc'].str.extract(r'(\s*\d{3,4}\s*(?:–\s*\d{0,2}\s*\w*\s*\d{3,4})?)')
+df_all['dates'][29] = '1307 – 1327'
+df_all['dates'][3] = '927 – 939'
+#remove days and months
+df_all['dates'] = df_all['dates'].str.replace(r'\s+\d{0,2}\s+\w*\s+', ' ')
 
 # - clean up Birth column -------------------
 df_all['Birth'] = df_all['Birth'].str.extract(r'(\d{3,4})')
 
 # - clean up Death column -------------------
 df_all['Death'] = df_all['Death'].str.extract(r'(\d{3,4})')
+
+# - clean up Claim column -------------------
+df_all['Claim'] = df_all['Claim'].str.replace(r'/.*?of', 'of')
+#exstract relationship
+df_all['ClaimRelation'] = df_all['Claim'].str.extract(r'(\w*(?:-\w+)*(?:Son|Daughter))\s+',flags=re.IGNORECASE)
+
+#df_all['Claim'] = df_all['Claim'].str.extract(r'\s+of(\w+)',flags=re.IGNORECASE)
+print('18',df_all['Name'][18])
+print('27',df_all['Name'][27])
+
+print('18',df_all['Claim'][18])
+print('27',df_all['Claim'][27])
+
+df_all['Claim'] = df_all['Claim'].str.extract(r'(?:Son|Daughter)\s+of\s+(\w+\s*(?:[IV]+|of\s+\w+|the\s+\w+)*)',flags=re.IGNORECASE)
+# df_all['Claim'][0] = 'Æthelwulf of Wessex'
+df_all['Claim'][10] = NaN
+# df_all['Claim'][13] = 'Sweyn'
+# df_all['Claim'][27] = 'John'
+df_all['Claim'][45] = 'spouse'
+
+print(df_all['Claim'])
