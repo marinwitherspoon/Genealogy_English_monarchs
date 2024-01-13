@@ -1,6 +1,7 @@
 # Genealogy of English Monarchs
-This project was intended to provide a visual representation of the genealogy of the english monarchy over time. 
-![Here is the finished product](https://github.com/marinwitherspoon/English-monarchs/blob/main/Genealogy_English_monarchs.pdf)
+This project was undertaken to provide a visual representation of the genealogy of the English monarchy over time.
+
+![here is the finished product](https://github.com/marinwitherspoon/English-monarchs/blob/main/Genealogy_English_monarchs.pdf)
 
 ## Table of Contents  
 [Motivation](#Motivation) 
@@ -18,43 +19,45 @@ This project was intended to provide a visual representation of the genealogy of
 [Acknowledgments](#Acknowledgments)
 
 ## Motivation
-I found it difficult to refrence and understand familial relations in the english monarchy. So I decided to make a graph that would not only show when all the monarchs ruled but also their ancestrial claim to the throne. While simular graphs existed I found them confusing and unclear or lacking information. For example ![here](https://upload.wikimedia.org/wikipedia/en/timeline/kel7q8fxt834vxbcc06ct75fw2k99tc.png) is the image provided on the very Wikipedia page I scraped my data from. While this graph allows users to click on any monarchs name and be linked to the associated wikipedia page(feature not included in this png image please visit the original [wikipedia page](https://en.wikipedia.org/wiki/List_of_English_monarchs) for this feature) it only shows the name of the monarch and when they ruled. Alternatively, a traditional family tree is often very cluttered with the complex relations of the Enlglish monarchy making it difficult to follow who is related to who. Therefor, I simplified it down removing all famly ties unless they were the monarch themselves. 
+The motivation behind this project stemmed from the difficulty in referencing and comprehending familial relation graphs for the English monarchy. As a result, the project creator decided to create a graphical representation that not only displays the reigns of all the monarchs but also illustrates their ancestral claims to the throne. While similar graphs existed, they were often confusing, lacked clarity, or were deficient in information.
+
+For instance, the image provided on the Wikipedia page from which the data was scraped can be seen ![here](https://upload.wikimedia.org/wikipedia/en/timeline/kel7q8fxt834vxbcc06ct75fw2k99tc.png). Although this graph allows users to click on any monarch's name and be linked to the associated Wikipedia page (please visit the original [wikipedia page](https://en.wikipedia.org/wiki/List_of_English_monarchs) for this feature), it only displays the monarch's name and reign dates. Conversely, a traditional family tree is often cluttered with the complex relations of the English monarchy, making it difficult to discern who is related to whom. Therefore, this project simplified the representation down to the reigning monarchs only.
 
 ## Scheduled-Feature-Additions
+The following features are scheduled to be added in the future:
 * Adding monarchs up to the present day.
 * Adding family name coloring.
 * Adding significant historical events to the time line.
 * improving code efficiency.
 
 ## Usage
-This program was built using google Colab and should run with little to no modifications on Google Colab. Simply download the [code file](https://github.com/marinwitherspoon/English-monarchs/blob/main/Processing.ipynb) and open in Google Colab. 
+This program was developed using Google Colab and should run with minimal to no modifications on Google Colab. Simply download the [code file](https://github.com/marinwitherspoon/English-monarchs/blob/main/Processing.ipynb) and open it in Google Colab. 
 
-Alternatively it should be able to run on Jupyter Notebook with a few modifications such as changing the package ColabTurtlePlus to simply Turtle.
+Alternatively, it should be able to run on Jupyter Notebook with a few modifications, such as changing the package from ColabTurtlePlus to simply Turtle.
 
-See [Scheduled-Feature-Additions](##Scheduled-Feature-Additions) for examples of where this prject could be improved.
+For examples of potential improvements for this project, please refer to the [Scheduled-Feature-Additions](#Scheduled-Feature-Additions) section.
 
 ## Built-With
-BeautifulSoup, ColabTurtlePlus, cairosvg, Pandas, re, requests
+* BeautifulSoup
+* ColabTurtlePlus
+* cairosvg
+* Pandas
+* re
+* requests
 
 ## Contributing
-If you wish to make a contribution or suggestion feel free to reach out to me at witherspoon.m@northeastern.edu
+If you wish to make a contribution or suggestion, please feel free to reach out to the project creator at witherspoon.m@northeastern.edu
 
 ## Authors
 Marin Witherspoon
 
 ## Acknowledgments
-[Wikipedia](https://en.wikipedia.org/wiki/List_of_English_monarchs)
-
-Google Colab
-
-BeautifulSoup
-
-ColabTurtlePlus
-
-cairosvg, Pandas
-
-re
-
-requests
-
-Turtle
+* [Wikipedia](https://en.wikipedia.org/wiki/List_of_English_monarchs)
+* Google Colab
+* BeautifulSoup
+* ColabTurtlePlus
+* cairosvg
+* Pandas
+* re
+* requests
+* Turtle
