@@ -1,5 +1,5 @@
 # Genealogy of English Monarchs
-This project was intended to provide a visual representation of the geniology of the english monarchy over time. 
+This project was intended to provide a visual representation of the genealogy of the english monarchy over time. 
 ![Here is the finished product](https://github.com/marinwitherspoon/English-monarchs/blob/main/Genealogy_English_monarchs.pdf)
 
 ## Table of Contents  
