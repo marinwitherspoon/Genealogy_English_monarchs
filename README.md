@@ -3,23 +3,19 @@ This project was intended to provide a visual representation of the genealogy of
 ![Here is the finished product](https://github.com/marinwitherspoon/English-monarchs/blob/main/Genealogy_English_monarchs.pdf)
 
 ## Table of Contents  
-[Motivation](##Motivation) 
+[Motivation](#Motivation) 
 
-[Scheduled-Feature-Additions](##Scheduled-Feature-Additions) 
+[Scheduled-Feature-Additions](#Scheduled-Feature-Additions) 
 
-[Screenshots/Demo](##Screenshots/Demo) 
+[Usage](#Usage)
 
-[Getting-Started](##Getting-Started) 
+[Built-With](#Built-With)
 
-[Usage](##Usage)
+[Contributing](#Contributing)
 
-[Built-With](##Built-With)
+[Authors](#Authors)
 
-[Contributing](##Contributing)
-
-[Authors](##Authors)
-
-[Acknowledgments](##Acknowledgments)
+[Acknowledgments](#Acknowledgments)
 
 ## Motivation
 I found it difficult to refrence and understand familial relations in the english monarchy. So I decided to make a graph that would not only show when all the monarchs ruled but also their ancestrial claim to the throne. While simular graphs existed I found them confusing and unclear or lacking information. For example ![here](https://upload.wikimedia.org/wikipedia/en/timeline/kel7q8fxt834vxbcc06ct75fw2k99tc.png) is the image provided on the very Wikipedia page I scraped my data from. While this graph allows users to click on any monarchs name and be linked to the associated wikipedia page(feature not included in this png image please visit the original [wikipedia page](https://en.wikipedia.org/wiki/List_of_English_monarchs) for this feature) it only shows the name of the monarch and when they ruled. Alternatively, a traditional family tree is often very cluttered with the complex relations of the Enlglish monarchy making it difficult to follow who is related to who. Therefor, I simplified it down removing all famly ties unless they were the monarch themselves. 
