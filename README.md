@@ -1,7 +1,7 @@
 # English Monarchs
 This project was intended to provide a visual representation of the geniology of the english monarchy. 
 
-## Table of Contents
+##### Table of Contents  
 [motivation] (## Motivation)
 [Features]
 [Screenshots/Demo]
