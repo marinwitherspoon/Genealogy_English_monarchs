@@ -2,7 +2,8 @@
 This project was intended to provide a visual representation of the geniology of the english monarchy. 
 
 ##### Table of Contents  
-[motivation] (## Motivation)
+[Headers](#headers) 
+[motivation] (##Motivation)
 [Features]
 [Screenshots/Demo]
 [Getting Started]
